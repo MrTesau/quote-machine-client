@@ -1,25 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import DisplayQuote from "./DisplayQuote.js";
+import QuoteForm from "./AddQuote.js";
+import { listQuotes, deleteQuote } from "./API";
 
-function App() {
+// server Request to get saved quotes
+
+export default function App() {
+  const [quotes, setQuotes] = React.useState([]); // [{quote: "", author: ""}]
+  const [randomIndex, setRandomIndex] = React.useState("");
+
+  // Retrieve Quotes from DB
+  const fetchQuotes = async () => {
+    const storedQuotes = await listQuotes();
+    setQuotes(storedQuotes); // new list of quotes from db
+    // setRandomIndex(Math.floor(Math.random() * quotes.length)); // optional -> randomly display new quote
+    //console.log(quotes);
+  };
+
+  // my attempt at recursion
+  // makes sure a unique quote is always generated on click
+  const generateIndex = () => {
+    let newIndex = Math.floor(Math.random() * quotes.length);
+    newIndex === randomIndex ? generateIndex() : setRandomIndex(newIndex);
+  };
+  // retrieve on initial page loading
+  // Trigger API call with useEffect
+  React.useEffect(() => {
+    fetchQuotes();
+  }, []);
+
+  const Delete = () => {
+    // Logic to find current quote and delete from db
+    //find Quote
+    let id = quotes[randomIndex]._id;
+    deleteQuote(id);
+    // remove from local quotes for performance
+    // prob less than optimal
+    let removedQuotes = [...quotes];
+    removedQuotes.splice(randomIndex, 1);
+    setQuotes(removedQuotes);
+    generateIndex();
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <DisplayQuote
+        {...quotes[randomIndex]}
+        generateIndex={generateIndex}
+        randomIndex={randomIndex}
+        delete={Delete}
+      />
+
+      <QuoteForm
+        onClose={() => {
+          fetchQuotes();
+        }}
+      />
     </div>
   );
 }
-
-export default App;
