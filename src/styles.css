@@ -1,0 +1,130 @@
+* {
+  padding-top: 5px;
+}
+
+/*Root CSS rules */
+/* Custom Properties */
+:root {
+  height: 100vh;
+  /* Custom properties -> need duble hyphen */
+  /* font families */
+  --ff-primary: "Source Sans Pro", sans-serif;
+  --ff-secondary: "Source Code Pro", monospace;
+  /* font weight */
+  --fw-reg: 300;
+  --fw-md: 500;
+  --fw-bold: 900;
+  /* custom colors */
+  --clr-light: #fff;
+  --clr-dark: #303030;
+  --clr-accent: #16e0bd;
+
+  /*Font size */
+  --fs-h1: 3rem;
+  --fs-h2: 2.25rem;
+  --fs-h3: 1.25rem;
+  --fs-body: 1rem;
+}
+body {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(https://miro.medium.com/max/1024/1*9WeJrBj6pp-qnGjRGg2NUw.png) no-repeat
+      center center/cover;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.displayQuote {
+  height: 275px;
+  width: 50%;
+  /*background-color: powderblue;*/
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3px;
+}
+.displayQuote h2 {
+  font-size: var(--fs-h1);
+  color: var(--clr-light);
+  font-family: var(--ff-primary);
+}
+.displayQuote p {
+  font-size: var(--fs-h3);
+  color: var(--clr-light);
+  font-family: var(--ff-secondary);
+  margin: 0;
+}
+
+/* 
+ Imported Button Style experiment 
+ Some more styles to look through: https://freefrontend.com/css-buttons
+*/
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
+.btn {
+  font-size: 1rem;
+  padding: 0.5rem 1.5rem;
+  margin: 1rem;
+  color: var(--clr-dark);
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgb(146, 148, 248);
+  position: relative;
+  overflow: hidden;
+}
+/* Imported Basic form Style */
+.form-style-10 {
+  width: 450px;
+  padding: 5px;
+  margin: 5px auto;
+}
+.form-style-10 .inner-wrap {
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
+
+.form-style-10 h1 > span {
+  display: block;
+  margin-top: 2px;
+  font: 13px Arial, Helvetica, sans-serif;
+}
+.form-style-10 label {
+  display: block;
+  font: 13px Arial, Helvetica, sans-serif;
+  color: #888;
+  margin-bottom: 15px;
+}
+.form-style-10 input[type="text"],
+.form-style-10 textarea,
+.form-style-10 select {
+  display: block;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 100%;
+  padding: 8px;
+}
+
+.form-style-10 .section {
+  font: normal 20px "Bitter", serif;
+  color: #2a88ad;
+  margin-bottom: 5px;
+}
+
+.form-style-10 input[type="button"],
+.form-style-10 input[type="submit"] {
+  background: #2a88ad;
+  padding: 8px 20px 8px 20px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+  font: normal 30px "Bitter", serif;
+  -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+  -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+  box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+  border: 1px solid #257c9e;
+  font-size: 15px;
+}

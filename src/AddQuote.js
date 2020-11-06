@@ -9,6 +9,7 @@ export default function AddQuote({ onclose }) {
     quote: "",
     author: "",
   });
+  const [formHidden, setFormHidden] = React.useState(true);
   // handleChange in form field
   // find field target name
   // find field target value
@@ -35,28 +36,63 @@ export default function AddQuote({ onclose }) {
 
   return (
     <div style={{ textAlign: "center" }}>
-      <form onSubmit={handleSubmit}>
-        <p> Add a quote:</p>
-        <input
-          type="textbox"
-          name="quote"
-          onChange={handleInputChange}
-          value={values.quote}
-        />
-
-        <p> Author:</p>
-        <input
-          type="textbox"
-          name="author"
-          onChange={handleInputChange}
-          value={values.author}
-        />
-        <br />
-        <br />
-        <button type="submit" onClick={() => handleSubmit(values)}>
-          Submit!
+      <div className="container">
+        <button className="btn" onClick={() => setFormHidden(!formHidden)}>
+          {" "}
+          Add a quote:
         </button>
-      </form>
+      </div>
+      {formHidden ? null : (
+        <div class="form-style-10">
+          <form onSubmit={handleSubmit}>
+            {/*} <input
+              type="textbox"
+              name="quote"
+              onChange={handleInputChange}
+              value={values.quote}
+      /> */}
+            <div class="section"></div>
+            <div class="inner-wrap">
+              <label>
+                Quote{" "}
+                <textarea
+                  name="quote"
+                  value={values.quote}
+                  onChange={handleInputChange}
+                ></textarea>
+              </label>
+            </div>
+            <label>
+              Author{" "}
+              <input
+                type="text"
+                name="author"
+                onChange={handleInputChange}
+                value={values.author}
+              />
+            </label>
+            {/*}
+            <input
+              type="textbox"
+              name="author"
+              onChange={handleInputChange}
+              value={values.author}
+    /> */}
+            <div class="button-section">
+              <input
+                type="submit"
+                name="Add Quote"
+                onClick={() => handleSubmit(values)}
+              />
+            </div>{" "}
+            {/* 
+            <button type="submit" onClick={() => handleSubmit(values)}>
+              Submit!
+            </button>
+    */}
+          </form>
+        </div>
+      )}
     </div>
   );
 }

@@ -3,31 +3,38 @@ import React from "react";
 const DisplayQuote = ({ quote, author, ...props }) => {
   return (
     <div style={{ textAlign: "center" }}>
-      {props.randomIndex !== "" ? (
-        <>
-          <h2>{`"${quote}"`}</h2>
-          <br />
-          <p>{`-${author}`}</p>
-        </>
-      ) : (
-        <h3>Click Below to Generate a Motivational Quote</h3>
-      )}
-      <button
-        onClick={() => {
-          props.generateIndex();
-        }}
-      >
-        New Quote
-      </button>
-      <br />
-      <button
-        onClick={() => {
-          props.delete();
-        }}
-      >
-        {" "}
-        Delete Quote{" "}
-      </button>
+      <div className="displayQuote">
+        {props.randomIndex !== "" ? (
+          <>
+            <h2>{`"${quote}"`}</h2>
+            <br />
+            <p>{`-${author}`}</p>
+          </>
+        ) : (
+          <h2>Click Below to Generate a Motivational Quote</h2>
+        )}
+      </div>
+      <div className="container">
+        <button
+          className="btn"
+          onClick={() => {
+            props.generateIndex();
+          }}
+        >
+          Generate Inspiration
+        </button>
+        <br />
+        <button
+          className="btn"
+          onClick={() => {
+            props.delete();
+          }}
+        >
+          {" "}
+          Delete Quote{" "}
+        </button>
+      </div>
+
       <br />
     </div>
   );

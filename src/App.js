@@ -2,7 +2,7 @@ import React from "react";
 import DisplayQuote from "./DisplayQuote.js";
 import QuoteForm from "./AddQuote.js";
 import { listQuotes, deleteQuote } from "./API";
-
+import "./styles.css";
 // server Request to get saved quotes
 
 export default function App() {
@@ -43,19 +43,20 @@ export default function App() {
   };
 
   return (
-    <div>
-      <DisplayQuote
-        {...quotes[randomIndex]}
-        generateIndex={generateIndex}
-        randomIndex={randomIndex}
-        delete={Delete}
-      />
-
+    <>
+      <div>
+        <DisplayQuote
+          {...quotes[randomIndex]}
+          generateIndex={generateIndex}
+          randomIndex={randomIndex}
+          delete={Delete}
+        />
+      </div>
       <QuoteForm
         onClose={() => {
           fetchQuotes();
         }}
       />
-    </div>
+    </>
   );
 }
