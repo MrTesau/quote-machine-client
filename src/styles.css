@@ -1,4 +1,6 @@
 * {
+  margin: 0;
+  padding: 0;
   padding-top: 5px;
 }
 
@@ -38,6 +40,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   padding: 3px;
+  margin-bottom: 20px;
 }
 .displayQuote h2 {
   font-size: var(--fs-h1);
