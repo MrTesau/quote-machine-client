@@ -3,15 +3,21 @@ import React from "react";
 const DisplayQuote = ({ quote, author, ...props }) => {
   return (
     <div style={{ textAlign: "center" }}>
-      <div className="displayQuote">
+      <div className="display-quote">
         {props.randomIndex !== "" ? (
           <>
-            <h2>{`"${quote}"`}</h2>
+            <div id="quote-selected">
+              <h2>{`"${quote}"`}</h2>
+            </div>
             <br />
-            <p>{`-${author}`}</p>
+            <div id="author-selected">
+              <p>{`-${author}`}</p>
+            </div>
           </>
         ) : (
-          <h2>Click Below to Generate a Motivational Quote</h2>
+          <div id="quote-selected">
+            <h2>Click Below to Generate a Motivational Quote</h2>
+          </div>
         )}
       </div>
       <div className="container">
