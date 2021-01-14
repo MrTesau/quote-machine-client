@@ -34,20 +34,26 @@ export default function App() {
   };
 
   return (
-    <>
-      <div>
-        <DisplayQuote
-          {...quotes[randomIndex]}
-          generateIndex={generateIndex}
-          randomIndex={randomIndex}
-          delete={Delete}
-        />
-      </div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        minHeight: "100vh",
+      }}
+    >
+      <DisplayQuote
+        {...quotes[randomIndex]}
+        generateIndex={generateIndex}
+        randomIndex={randomIndex}
+        delete={Delete}
+      />
+
       <QuoteForm
         onClose={() => {
           fetchQuotes();
         }}
       />
-    </>
+    </div>
   );
 }
