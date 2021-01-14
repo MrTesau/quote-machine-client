@@ -9,29 +9,20 @@ export default function App() {
   const [quotes, setQuotes] = React.useState([]); // [{quote: "", author: ""}]
   const [randomIndex, setRandomIndex] = React.useState("");
 
-  // Retrieve Quotes from DB
   const fetchQuotes = async () => {
     const storedQuotes = await listQuotes();
-    setQuotes(storedQuotes); // new list of quotes from db
-    // setRandomIndex(Math.floor(Math.random() * quotes.length)); // optional -> randomly display new quote
-    //console.log(quotes);
+    setQuotes(storedQuotes);
   };
 
-  // my attempt at recursion
-  // makes sure a unique quote is always generated on click
   const generateIndex = () => {
     let newIndex = Math.floor(Math.random() * quotes.length);
     newIndex === randomIndex ? generateIndex() : setRandomIndex(newIndex);
   };
-  // retrieve on initial page loading
-  // Trigger API call with useEffect
   React.useEffect(() => {
     fetchQuotes();
   }, []);
 
   const Delete = () => {
-    // Logic to find current quote and delete from db
-    //find Quote
     let id = quotes[randomIndex]._id;
     deleteQuote(id);
     // remove from local quotes for performance
