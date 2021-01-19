@@ -34,26 +34,20 @@ export default function App() {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        minHeight: "100vh",
-      }}
-    >
+    <div className="body-wrapper">
       <DisplayQuote
         {...quotes[randomIndex]}
         generateIndex={generateIndex}
         randomIndex={randomIndex}
         delete={Delete}
       />
-
+      {/*
       <QuoteForm
         onClose={() => {
           fetchQuotes();
         }}
       />
+      */}
     </div>
   );
 }
