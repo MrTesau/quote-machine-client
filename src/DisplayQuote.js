@@ -1,5 +1,6 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
+import Hidden from "@material-ui/core/Hidden";
 import DisplayImage from "./DisplayImage";
 
 // display picture with quote
@@ -13,22 +14,23 @@ const DisplayQuote = ({ quote, author, ...props }) => {
       justify="center"
       alignItems="center"
     >
-      <DisplayImage />
+      <Hidden mdDown>
+        <DisplayImage />
+      </Hidden>
+
       <Grid item xs={11} md={8} lg={6}>
         <div className="display-quote">
-          {props.randomIndex !== "" ? (
-            <>
-              <div id="quote-selected">
+          <div id="quote-selected">
+            {props.randomIndex !== "" ? (
+              <>
                 <h2>{`"${quote}"`}</h2>
-              </div>
-
-              <p>{`-${author}`}</p>
-            </>
-          ) : (
-            <div id="quote-selected">
+                <br />
+                <p>{`-${author}`}</p>
+              </>
+            ) : (
               <h2>Click Below to Generate a Motivational Quote</h2>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </Grid>
       <Grid item xs={11} style={{ display: "flex", justifyContent: "center" }}>

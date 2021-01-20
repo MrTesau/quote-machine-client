@@ -30,6 +30,8 @@ body {
   text-align: center;
   width: 100%;
   margin: 0;
+  height: 5rem;
+  max-height: 5rem;
 }
 .display-quote h2 {
   font-size: 1.25rem;
@@ -37,19 +39,9 @@ body {
   font-family: Source Sans Pro, sans-serif;
 }
 .display-quote p {
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: #fff;
   font-family: Source Sans Pro, sans-serif;
-  margin: 0;
-}
-
-#quote-selected {
-  width: 100%;
-  height: 5rem;
-  max-height: 5rem;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
   margin: 0;
 }
 
