@@ -42,7 +42,7 @@ const DisplayImage = (props) => {
           //className={classes.media}
           image={Imgs[randomIndex]}
           title="Contemplative Reptile"
-          style={{ width: "45vw", height: "55vh" }}
+          style={{ width: "45rem", height: "26rem" }}
         />
       </Card>
     </Grid>
