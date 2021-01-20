@@ -23,14 +23,15 @@ export default function App() {
   }, []);
 
   const Delete = () => {
-    let id = quotes[randomIndex]._id;
-    deleteQuote(id);
+    console.log(quotes);
+    //let id = quotes[randomIndex]._id;
+    //deleteQuote(id);
     // remove from local quotes for performance
     // prob less than optimal
-    let removedQuotes = [...quotes];
-    removedQuotes.splice(randomIndex, 1);
-    setQuotes(removedQuotes);
-    generateIndex();
+    // let removedQuotes = [...quotes];
+    // removedQuotes.splice(randomIndex, 1);
+    // setQuotes(removedQuotes);
+    // generateIndex();
   };
 
   return (

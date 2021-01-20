@@ -3,8 +3,6 @@ import Grid from "@material-ui/core/Grid";
 import Hidden from "@material-ui/core/Hidden";
 import DisplayImage from "./DisplayImage";
 
-// display picture with quote
-
 const DisplayQuote = ({ quote, author, ...props }) => {
   return (
     <Grid
@@ -15,15 +13,15 @@ const DisplayQuote = ({ quote, author, ...props }) => {
       alignItems="center"
     >
       <Hidden mdDown>
-        <DisplayImage />
+        <DisplayImage randomIndex={props.randomIndex} />
       </Hidden>
 
-      <Grid item xs={11} md={8} lg={6}>
+      <Grid item xs={11} md={8} lg={7}>
         <div className="display-quote">
           <div id="quote-selected">
             {props.randomIndex !== "" ? (
               <>
-                <h2>{`"${quote}"`}</h2>
+                <h2>{`" ${quote} "`}</h2>
                 <br />
                 <p>{`-${author}`}</p>
               </>
