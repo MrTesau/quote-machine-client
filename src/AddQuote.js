@@ -36,63 +36,37 @@ export default function AddQuote({ onclose }) {
 
   return (
     <div style={{ textAlign: "center" }}>
-      <div className="container">
-        <button className="btn" onClick={() => setFormHidden(!formHidden)}>
-          {" "}
-          Add a quote:
-        </button>
-      </div>
-      {formHidden ? null : (
-        <div class="form-style-10">
-          <form onSubmit={handleSubmit}>
-            {/*} <input
-              type="textbox"
-              name="quote"
-              onChange={handleInputChange}
-              value={values.quote}
-      /> */}
-            <div class="section"></div>
-            <div class="inner-wrap">
-              <label>
-                Quote{" "}
-                <textarea
-                  name="quote"
-                  value={values.quote}
-                  onChange={handleInputChange}
-                ></textarea>
-              </label>
-            </div>
+      <div class="form-style-10">
+        <form onSubmit={handleSubmit}>
+          <div class="section"></div>
+          <div class="inner-wrap">
             <label>
-              Author{" "}
-              <input
-                type="text"
-                name="author"
+              Quote{" "}
+              <textarea
+                name="quote"
+                value={values.quote}
                 onChange={handleInputChange}
-                value={values.author}
-              />
+              ></textarea>
             </label>
-            {/*}
+          </div>
+          <label>
+            Author{" "}
             <input
-              type="textbox"
+              type="text"
               name="author"
               onChange={handleInputChange}
               value={values.author}
-    /> */}
-            <div class="button-section">
-              <input
-                type="submit"
-                name="Add Quote"
-                onClick={() => handleSubmit(values)}
-              />
-            </div>{" "}
-            {/* 
-            <button type="submit" onClick={() => handleSubmit(values)}>
-              Submit!
-            </button>
-    */}
-          </form>
-        </div>
-      )}
+            />
+          </label>
+          <div class="button-section">
+            <input
+              type="submit"
+              name="Add Quote"
+              onClick={() => handleSubmit(values)}
+            />
+          </div>{" "}
+        </form>
+      </div>
     </div>
   );
 }
