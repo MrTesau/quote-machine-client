@@ -1,5 +1,6 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
+import DisplayImage from "./DisplayImage";
 
 // display picture with quote
 
@@ -7,11 +8,12 @@ const DisplayQuote = ({ quote, author, ...props }) => {
   return (
     <Grid
       container
-      spacing={4}
+      spacing={2}
       direction="column"
       justify="center"
       alignItems="center"
     >
+      <DisplayImage />
       <Grid item xs={11} md={8} lg={6}>
         <div className="display-quote">
           {props.randomIndex !== "" ? (
@@ -20,9 +22,7 @@ const DisplayQuote = ({ quote, author, ...props }) => {
                 <h2>{`"${quote}"`}</h2>
               </div>
 
-              <div id="author-selected">
-                <p>{`-${author}`}</p>
-              </div>
+              <p>{`-${author}`}</p>
             </>
           ) : (
             <div id="quote-selected">
