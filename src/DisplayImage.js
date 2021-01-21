@@ -15,6 +15,8 @@ import gulls from "./imgs/gulls.jpg";
 import chemist from "./imgs/chemist.jpg";
 import interstellar from "./imgs/interstellar.jpg";
 import oberyn from "./imgs/oberyn.jpg";
+import placeholder from "./imgs/placeholder.jpg";
+import ubereem from "./imgs/ubereem.jpg";
 
 const Imgs = [
   nic,
@@ -31,6 +33,7 @@ const Imgs = [
   interstellar,
   kael,
   oberyn,
+  ubereem,
 ];
 
 const DisplayImage = (props) => {
@@ -39,9 +42,8 @@ const DisplayImage = (props) => {
     <Grid item md={8}>
       <Card>
         <CardMedia
-          //className={classes.media}
-          image={Imgs[randomIndex]}
-          title="Contemplative Reptile"
+          image={randomIndex ? Imgs[randomIndex] : placeholder}
+          title="quote Img"
           style={{ width: "45rem", height: "26rem" }}
         />
       </Card>

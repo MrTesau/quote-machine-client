@@ -42,13 +42,12 @@ export default function App() {
         randomIndex={randomIndex}
         delete={Delete}
       />
-      {/*
+
       <QuoteForm
         onClose={() => {
           fetchQuotes();
         }}
       />
-      */}
     </div>
   );
 }
