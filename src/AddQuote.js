@@ -2,12 +2,13 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import { createQuote } from "./API";
+import placeholder from "./imgs/backdrop.jpg";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: "absolute",
     width: 500,
-    backgroundColor: theme.palette.background.paper,
+    backgroundImage: `url(${placeholder})`,
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
@@ -91,6 +92,7 @@ export default function SimpleModal() {
                 />
               </div>{" "}
             </form>
+            <br />
             <button type="button" onClick={handleClose}>
               Close
             </button>
@@ -101,8 +103,8 @@ export default function SimpleModal() {
   );
 
   return (
-    <div style={{ width: "100vw", display: "flex", justifyContent: "center" }}>
-      <button type="button" onClick={handleOpen}>
+    <>
+      <button type="button" onClick={handleOpen} style={{ marginLeft: "5px" }}>
         Add Quote
       </button>
       <Modal
@@ -113,6 +115,6 @@ export default function SimpleModal() {
       >
         {body}
       </Modal>
-    </div>
+    </>
   );
 }

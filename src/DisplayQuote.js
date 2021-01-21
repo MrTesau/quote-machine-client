@@ -2,12 +2,13 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Hidden from "@material-ui/core/Hidden";
 import DisplayImage from "./DisplayImage";
+import QuoteForm from "./AddQuote.js";
 
 const DisplayQuote = ({ quote, author, ...props }) => {
   return (
     <Grid
       container
-      spacing={2}
+      spacing={1}
       direction="column"
       justify="center"
       alignItems="center"
@@ -40,6 +41,11 @@ const DisplayQuote = ({ quote, author, ...props }) => {
           {" "}
           Tweet Quote{" "}
         </a>
+        <QuoteForm
+          onClose={() => {
+            props.fetchQuotes();
+          }}
+        />
       </Grid>
       <Grid item xs={11} md={8}>
         <div className="container">
