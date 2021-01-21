@@ -17,6 +17,7 @@ import interstellar from "./imgs/interstellar.jpg";
 import oberyn from "./imgs/oberyn.jpg";
 import placeholder from "./imgs/placeholder.jpg";
 import ubereem from "./imgs/ubereem.jpg";
+import leo from "./imgs/leo.jpg";
 
 const Imgs = [
   nic,
@@ -34,6 +35,7 @@ const Imgs = [
   kael,
   oberyn,
   ubereem,
+  leo,
 ];
 
 const DisplayImage = (props) => {
@@ -44,7 +46,7 @@ const DisplayImage = (props) => {
         <CardMedia
           image={randomIndex !== "" ? Imgs[randomIndex] : placeholder}
           title="quote Img"
-          style={{ width: "45rem", height: "26rem" }}
+          style={{ width: "40rem", height: "24rem" }}
         />
       </Card>
     </Grid>

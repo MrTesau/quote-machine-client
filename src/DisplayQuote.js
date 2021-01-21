@@ -8,7 +8,7 @@ const DisplayQuote = ({ quote, author, ...props }) => {
   return (
     <Grid
       container
-      spacing={1}
+      spacing={2}
       direction="column"
       justify="center"
       alignItems="center"
@@ -32,7 +32,15 @@ const DisplayQuote = ({ quote, author, ...props }) => {
           </div>
         </div>
       </Grid>
-      <Grid item xs={11} style={{ display: "flex", justifyContent: "center" }}>
+      <Grid
+        item
+        xs={11}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <a
           id="tweet-quote"
           className="twitter-share-button"
@@ -46,6 +54,15 @@ const DisplayQuote = ({ quote, author, ...props }) => {
             props.fetchQuotes();
           }}
         />
+        <button
+          style={{ marginLeft: "4px" }}
+          onClick={() => {
+            props.delete();
+          }}
+        >
+          {" "}
+          Delete Quote{" "}
+        </button>
       </Grid>
       <Grid item xs={11} md={8}>
         <div className="container">
@@ -56,16 +73,6 @@ const DisplayQuote = ({ quote, author, ...props }) => {
             }}
           >
             Generate Inspiration
-          </button>
-          <br />
-          <button
-            className="btn"
-            onClick={() => {
-              props.delete();
-            }}
-          >
-            {" "}
-            Delete Quote{" "}
           </button>
         </div>
       </Grid>
