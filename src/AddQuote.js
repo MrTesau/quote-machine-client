@@ -101,9 +101,9 @@ export default function SimpleModal() {
   );
 
   return (
-    <div>
+    <div style={{ width: "100vw", display: "flex", justifyContent: "center" }}>
       <button type="button" onClick={handleOpen}>
-        Open Modal
+        Add Quote
       </button>
       <Modal
         open={open}
