@@ -42,7 +42,7 @@ const DisplayImage = (props) => {
     <Grid item md={8}>
       <Card>
         <CardMedia
-          image={randomIndex ? Imgs[randomIndex] : placeholder}
+          image={randomIndex !== "" ? Imgs[randomIndex] : placeholder}
           title="quote Img"
           style={{ width: "45rem", height: "26rem" }}
         />
