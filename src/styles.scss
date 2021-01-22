@@ -86,7 +86,7 @@ body {
   background-color: #126116;
   color: white;
   font-size: 0.7rem;
-  padding: 0.3rem;
+  padding: 0.25rem;
 }
 .btn-delete {
   outline: none;
@@ -95,15 +95,22 @@ body {
   border-radius: 9%;
   color: white;
   font-size: 0.7rem;
-  padding: 0.3rem;
+  padding: 0.25rem;
 }
-.btn-add,
+.btn-tweet {
+  outline: none;
+  background-color: #2078ac;
+  border: none;
+  border-radius: 9%;
+  color: white;
+  font-size: 0.8rem;
+  padding: 0.25rem;
+}
+.btn-add:hover,
+.btn-tweet:hover,
 .btn-delete:hover {
   cursor: pointer;
-}
-.btns:hover {
-  transform: scale(1.05);
-  cursor: pointer;
+  transform: scale(1.1);
 }
 
 /* Imported Basic form Style */

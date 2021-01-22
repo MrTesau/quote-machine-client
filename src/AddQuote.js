@@ -110,7 +110,8 @@ export default function SimpleModal() {
         onClick={handleOpen}
         style={{ marginLeft: "5px" }}
       >
-        Add Quote
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        &nbsp;Add New
       </button>
       <Modal
         open={open}

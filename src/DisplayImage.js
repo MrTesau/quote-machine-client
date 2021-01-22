@@ -19,7 +19,7 @@ import placeholder from "./imgs/placeholder.jpg";
 import ubereem from "./imgs/ubereem.jpg";
 import leo from "./imgs/leo.jpg";
 import arny from "./imgs/arny.jpg";
-
+import ras from "./imgs/ras.jpg";
 import QuoteForm from "./AddQuote.js";
 
 const Imgs = [
@@ -40,6 +40,7 @@ const Imgs = [
   ubereem,
   leo,
   arny,
+  ras,
 ];
 
 const DisplayImage = (props) => {
@@ -53,41 +54,53 @@ const DisplayImage = (props) => {
           style={{ width: "40rem", height: "24rem" }}
         />
       </Card>
-      <div
-        className="btns"
-        style={{
-          // width: "100vw",
-          display: "flex",
-          justifyContent: "center",
-          position: "absolute",
-          top: "24rem",
-          left: "1.5rem",
-        }}
-      >
-        <a
-          id="tweet-quote"
-          className="twitter-share-button"
-          href={`https://twitter.com/intent/tweet?text=${quote}`}
-        >
-          {" "}
-          Tweet Quote{" "}
-        </a>
-        <QuoteForm
-          onClose={() => {
-            // props.fetchQuotes();
-          }}
-        />
-        <button
-          className="btn-delete"
-          style={{ marginLeft: "5px" }}
-          onClick={() => {
-            // props.delete();
+      {randomIndex !== "" ? (
+        <div
+          className="btns"
+          style={{
+            // width: "100vw",
+            display: "flex",
+            justifyContent: "center",
+            position: "absolute",
+            top: "24rem",
+            left: "1.5rem",
           }}
         >
-          {" "}
-          Delete Quote{" "}
-        </button>
-      </div>
+          <button
+            className="btn-tweet"
+            style={{ marginLeft: "5px" }}
+            onClick={() => {
+              // props.delete();
+            }}
+          >
+            <a
+              //id="tweet-quote"
+              className="fa fa-twitter"
+              href={`https://twitter.com/intent/tweet?text=${quote}`}
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              {" "}
+              Tweet{" "}
+            </a>
+          </button>
+          <QuoteForm
+            onClose={() => {
+              // props.fetchQuotes();
+            }}
+          />
+          <button
+            className="btn-delete"
+            style={{ marginLeft: "5px" }}
+            onClick={() => {
+              // props.delete();
+            }}
+          >
+            <i class="fa fa-trash-o" aria-hidden="true"></i> Delete{" "}
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
     </Grid>
   );
 };
