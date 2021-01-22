@@ -16,7 +16,6 @@ const DisplayQuote = ({ quote, author, ...props }) => {
       <Hidden mdDown>
         <DisplayImage randomIndex={props.randomIndex} />
       </Hidden>
-
       <Grid item xs={11} md={8} lg={7}>
         <div className="display-quote">
           <div id="quote-selected">

@@ -1,8 +1,11 @@
+$lightColor: #fff;
+$mainFont: "Courier New", monospace;
+
 * {
   margin: 0;
   padding: 0;
 }
-/*Root CSS rules */
+
 body {
   max-width: 100vw !important;
 }
@@ -21,7 +24,7 @@ body {
   max-width: 100vw;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow-x: hidden; /*Grid overflow prevention */
 }
 .display-quote {
   display: flex;
@@ -34,14 +37,14 @@ body {
   max-height: 5rem;
 }
 .display-quote h2 {
-  font-size: 1.25rem;
-  color: #fff;
-  font-family: Source Sans Pro, sans-serif;
+  font-size: 1.1rem;
+  color: $lightColor;
+  font-family: $mainFont;
 }
 .display-quote p {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #fff;
-  font-family: Source Sans Pro, sans-serif;
+  font-family: $mainFont;
   margin: 0;
 }
 
@@ -55,17 +58,25 @@ body {
   align-items: center;
   height: 5em;
 }
+
 .btn {
-  font-size: 1rem;
-  font-family: Source Sans Pro, sans-serif;
-  padding: 0.5rem 1.5rem;
-  margin: 1rem;
-  color: v#303030;
-  text-transform: none;
+  padding: 1em;
+  display: inline-block;
+  background-color: #303030;
+  color: white;
   text-decoration: none;
-  border: 1px solid rgb(146, 148, 248);
-  position: relative;
-  overflow: hidden;
+  font-family: $mainFont;
+  transition: 0.3s background-color ease-in-out;
+}
+
+/* Add a hover/focus effect */
+.btn:hover,
+.btn:focus {
+  background-color: #303030;
+  outline: none;
+}
+.btn:hover {
+  transform: scale(1.1);
 }
 
 /* Imported Basic form Style */
@@ -124,3 +135,17 @@ body {
   border: 1px solid #257c9e;
   font-size: 15px;
 }
+/* Old button
+ .btn {
+  font-size: 1rem;
+  font-family: Source Sans Pro, sans-serif;
+  padding: 0.5rem 1.5rem;
+  margin: 1rem;
+  color: #303030;
+  text-transform: none;
+  text-decoration: none;
+  border: 1px solid rgb(146, 148, 248);
+  position: relative;
+  overflow: hidden;
+}
+*/

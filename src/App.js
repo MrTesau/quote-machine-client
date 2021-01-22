@@ -1,7 +1,7 @@
 import React from "react";
 import DisplayQuote from "./DisplayQuote.js";
 import { listQuotes, deleteQuote } from "./API";
-import "./styles.css";
+import "./styles.scss";
 // server Request to get saved quotes
 
 export default function App() {
