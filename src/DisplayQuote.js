@@ -2,41 +2,24 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Hidden from "@material-ui/core/Hidden";
 import DisplayImage from "./DisplayImage";
-import QuoteForm from "./AddQuote.js";
-import scraping from "./quoteSounds/scraping.mp3";
-import chemist from "./quoteSounds/chemist.mp3";
+import soundUrls from "./quoteSounds/QuoteSounds";
 
-const soundUrls = [
-  scraping,
-  "",
-  "",
-  "",
-  "",
-  scraping,
-  "",
-  "",
-  "",
-  "",
-  chemist,
-  "",
-  "",
-  scraping,
-  "",
-  "",
-  scraping,
-  "",
-];
 const DisplayQuote = ({ quote, author, ...props }) => {
+  const [playing, setPlaying] = React.useState(false);
   const audioRef = React.useRef(null);
   const playSound = () => {
+    setPlaying(true);
     audioRef.current.currentTime = 0;
     audioRef.current.play();
+    audioRef.current.onended = () => {
+      setPlaying(false);
+    };
   };
-  /*
   const stopSound = () => {
+    setPlaying(false);
     audioRef.current.pause();
   };
-  */
+
   return (
     <Grid
       container
@@ -68,6 +51,7 @@ const DisplayQuote = ({ quote, author, ...props }) => {
             className="btn"
             onClick={() => {
               props.generateIndex();
+              if (soundUrls[props.randomIndex]) stopSound();
             }}
           >
             Generate Inspiration
@@ -83,15 +67,25 @@ const DisplayQuote = ({ quote, author, ...props }) => {
                 className="btns"
                 style={{
                   position: "absolute",
-                  right: "2rem",
+                  right: "1.75rem",
                 }}
-                onClick={playSound}
+                onClick={() => {
+                  !playing ? playSound() : stopSound();
+                }}
               >
-                <i
-                  className="fa fa-play-circle fa-2x"
-                  aria-hidden="true"
-                  style={{ color: "#228B22", margin: 0 }}
-                ></i>
+                {!playing ? (
+                  <i
+                    className="fa fa-play-circle fa-2x"
+                    aria-hidden="true"
+                    style={{ color: "#228B22" }}
+                  ></i>
+                ) : (
+                  <i
+                    class="fa fa-stop-circle fa-2x"
+                    aria-hidden="true"
+                    style={{ color: "maroon" }}
+                  ></i>
+                )}
               </div>
             </>
           ) : (
