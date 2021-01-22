@@ -101,23 +101,6 @@ const DisplayImage = (props) => {
       ) : (
         ""
       )}
-      <div
-        className="btns"
-        style={{
-          // width: "100vw",
-          display: "flex",
-          justifyContent: "center",
-          position: "absolute",
-          top: "22.5rem",
-          right: "1.5rem",
-        }}
-      >
-        <i
-          className="fa fa-play-circle-o fa-2x"
-          aria-hidden="true"
-          style={{ color: "green" }}
-        ></i>
-      </div>
     </Grid>
   );
 };

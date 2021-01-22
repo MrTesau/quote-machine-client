@@ -35,33 +35,31 @@ body {
   margin: 0;
   height: 5rem;
   max-height: 5rem;
+  /* Sass Nesting */
+  h3 {
+    font-size: 1.125rem;
+    color: $lightColor;
+    font-family: $mainFont;
+  }
+  p {
+    font-size: 0.9rem;
+    color: #fff;
+    font-family: $mainFont;
+    margin: 0;
+  }
 }
-.display-quote h2 {
-  font-size: 1.125rem;
-  color: $lightColor;
-  font-family: $mainFont;
-}
-.display-quote p {
-  font-size: 0.9rem;
-  color: #fff;
-  font-family: $mainFont;
-  margin: 0;
-}
-
-/* 
- Imported Button Style experiment 
- Some more styles to look through: https://freefrontend.com/css-buttons
-*/
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   height: 5em;
+  width: 20rem;
+  position: relative;
 }
 
 .btn {
-  padding: 0.5rem;
-  display: inline-block;
+  padding: 0.4rem;
+
   background-color: #303030;
   color: white;
   text-decoration: none;
@@ -106,7 +104,7 @@ body {
   font-size: 0.8rem;
   padding: 0.25rem;
 }
-.fa-play-circle-o:hover,
+.fa-play-circle:hover,
 .btn-add:hover,
 .btn-tweet:hover,
 .btn-delete:hover {

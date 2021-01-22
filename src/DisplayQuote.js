@@ -3,8 +3,40 @@ import Grid from "@material-ui/core/Grid";
 import Hidden from "@material-ui/core/Hidden";
 import DisplayImage from "./DisplayImage";
 import QuoteForm from "./AddQuote.js";
+import scraping from "./quoteSounds/scraping.mp3";
+import chemist from "./quoteSounds/chemist.mp3";
 
+const soundUrls = [
+  scraping,
+  "",
+  "",
+  "",
+  "",
+  scraping,
+  "",
+  "",
+  "",
+  "",
+  chemist,
+  "",
+  "",
+  scraping,
+  "",
+  "",
+  scraping,
+  "",
+];
 const DisplayQuote = ({ quote, author, ...props }) => {
+  const audioRef = React.useRef(null);
+  const playSound = () => {
+    audioRef.current.currentTime = 0;
+    audioRef.current.play();
+  };
+  /*
+  const stopSound = () => {
+    audioRef.current.pause();
+  };
+  */
   return (
     <Grid
       container
@@ -20,28 +52,16 @@ const DisplayQuote = ({ quote, author, ...props }) => {
           <div id="quote-selected">
             {props.randomIndex !== "" ? (
               <>
-                <h2>{`${quote}`}</h2>
+                <h3>{`${quote}`}</h3>
                 <br />
                 <p>{`-${author}`}</p>
               </>
             ) : (
-              <h2>Click Below to Generate a Motivational Quote</h2>
+              <h3>Click Below to Generate a Motivational Quote</h3>
             )}
           </div>
         </div>
       </Grid>
-      {/*
-      <Grid
-        item
-        xs={11}
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-       
-      </Grid> */}
       <Grid item xs={11} md={8}>
         <div className="container">
           <button
@@ -52,6 +72,31 @@ const DisplayQuote = ({ quote, author, ...props }) => {
           >
             Generate Inspiration
           </button>
+          {soundUrls[props.randomIndex] ? (
+            <>
+              <audio
+                ref={audioRef}
+                src={soundUrls[props.randomIndex]}
+                style={{ display: "none" }}
+              />
+              <div
+                className="btns"
+                style={{
+                  position: "absolute",
+                  right: "2rem",
+                }}
+                onClick={playSound}
+              >
+                <i
+                  className="fa fa-play-circle fa-2x"
+                  aria-hidden="true"
+                  style={{ color: "#228B22", margin: 0 }}
+                ></i>
+              </div>
+            </>
+          ) : (
+            ""
+          )}
         </div>
       </Grid>
     </Grid>
