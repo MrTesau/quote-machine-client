@@ -37,7 +37,7 @@ body {
   max-height: 5rem;
 }
 .display-quote h2 {
-  font-size: 1.1rem;
+  font-size: 1.125rem;
   color: $lightColor;
   font-family: $mainFont;
 }
@@ -60,15 +60,15 @@ body {
 }
 
 .btn {
-  padding: 1em;
+  padding: 0.5rem;
   display: inline-block;
   background-color: #303030;
   color: white;
   text-decoration: none;
   font-family: $mainFont;
   transition: 0.3s background-color ease-in-out;
+  border-radius: 2.5%;
 }
-
 /* Add a hover/focus effect */
 .btn:hover,
 .btn:focus {
@@ -77,6 +77,33 @@ body {
 }
 .btn:hover {
   transform: scale(1.1);
+  cursor: pointer;
+}
+.btn-add {
+  outline: none;
+  border: none;
+  border-radius: 9%;
+  background-color: #126116;
+  color: white;
+  font-size: 0.7rem;
+  padding: 0.3rem;
+}
+.btn-delete {
+  outline: none;
+  background-color: #8d2a2a;
+  border: none;
+  border-radius: 9%;
+  color: white;
+  font-size: 0.7rem;
+  padding: 0.3rem;
+}
+.btn-add,
+.btn-delete:hover {
+  cursor: pointer;
+}
+.btns:hover {
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 /* Imported Basic form Style */

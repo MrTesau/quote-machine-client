@@ -8,20 +8,19 @@ const DisplayQuote = ({ quote, author, ...props }) => {
   return (
     <Grid
       container
-      spacing={2}
+      spacing={3}
       direction="column"
       justify="center"
       alignItems="center"
     >
-      <Hidden mdDown>
-        <DisplayImage randomIndex={props.randomIndex} />
-      </Hidden>
-      <Grid item xs={11} md={8} lg={7}>
+      <DisplayImage quote={quote} randomIndex={props.randomIndex} />
+
+      <Grid item xs={11} md={8}>
         <div className="display-quote">
           <div id="quote-selected">
             {props.randomIndex !== "" ? (
               <>
-                <h2>{`" ${quote} "`}</h2>
+                <h2>{`${quote}`}</h2>
                 <br />
                 <p>{`-${author}`}</p>
               </>
@@ -31,6 +30,7 @@ const DisplayQuote = ({ quote, author, ...props }) => {
           </div>
         </div>
       </Grid>
+      {/*
       <Grid
         item
         xs={11}
@@ -40,29 +40,8 @@ const DisplayQuote = ({ quote, author, ...props }) => {
           alignItems: "center",
         }}
       >
-        <a
-          id="tweet-quote"
-          className="twitter-share-button"
-          href={`https://twitter.com/intent/tweet?text=${quote}`}
-        >
-          {" "}
-          Tweet Quote{" "}
-        </a>
-        <QuoteForm
-          onClose={() => {
-            props.fetchQuotes();
-          }}
-        />
-        <button
-          style={{ marginLeft: "4px" }}
-          onClick={() => {
-            props.delete();
-          }}
-        >
-          {" "}
-          Delete Quote{" "}
-        </button>
-      </Grid>
+       
+      </Grid> */}
       <Grid item xs={11} md={8}>
         <div className="container">
           <button

@@ -104,7 +104,12 @@ export default function SimpleModal() {
 
   return (
     <>
-      <button type="button" onClick={handleOpen} style={{ marginLeft: "5px" }}>
+      <button
+        className="btn-add"
+        type="button"
+        onClick={handleOpen}
+        style={{ marginLeft: "5px" }}
+      >
         Add Quote
       </button>
       <Modal

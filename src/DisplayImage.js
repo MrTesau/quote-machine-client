@@ -18,6 +18,9 @@ import oberyn from "./imgs/oberyn.jpg";
 import placeholder from "./imgs/placeholder.jpg";
 import ubereem from "./imgs/ubereem.jpg";
 import leo from "./imgs/leo.jpg";
+import arny from "./imgs/arny.jpg";
+
+import QuoteForm from "./AddQuote.js";
 
 const Imgs = [
   nic,
@@ -36,12 +39,13 @@ const Imgs = [
   oberyn,
   ubereem,
   leo,
+  arny,
 ];
 
 const DisplayImage = (props) => {
-  const { randomIndex } = props;
+  const { randomIndex, quote } = props;
   return (
-    <Grid item md={8}>
+    <Grid item md={8} style={{ position: "relative" }}>
       <Card>
         <CardMedia
           image={randomIndex !== "" ? Imgs[randomIndex] : placeholder}
@@ -49,6 +53,41 @@ const DisplayImage = (props) => {
           style={{ width: "40rem", height: "24rem" }}
         />
       </Card>
+      <div
+        className="btns"
+        style={{
+          // width: "100vw",
+          display: "flex",
+          justifyContent: "center",
+          position: "absolute",
+          top: "24rem",
+          left: "1.5rem",
+        }}
+      >
+        <a
+          id="tweet-quote"
+          className="twitter-share-button"
+          href={`https://twitter.com/intent/tweet?text=${quote}`}
+        >
+          {" "}
+          Tweet Quote{" "}
+        </a>
+        <QuoteForm
+          onClose={() => {
+            // props.fetchQuotes();
+          }}
+        />
+        <button
+          className="btn-delete"
+          style={{ marginLeft: "5px" }}
+          onClick={() => {
+            // props.delete();
+          }}
+        >
+          {" "}
+          Delete Quote{" "}
+        </button>
+      </div>
     </Grid>
   );
 };
