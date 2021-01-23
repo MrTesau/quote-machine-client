@@ -67,7 +67,7 @@ const DisplayQuote = ({ quote, author, ...props }) => {
                 className="btns"
                 style={{
                   position: "absolute",
-                  right: "1.75rem",
+                  right: "1.85rem",
                 }}
                 onClick={() => {
                   !playing ? playSound() : stopSound();
