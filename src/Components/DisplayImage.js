@@ -6,30 +6,20 @@ import QuoteForm from "./AddQuote.js";
 import DeleteForm from "./DeleteQuote.js";
 import placeholder from "../imgs/placeholder.jpg";
 import Imgs from "../imgs/QuoteImages";
-import { deleteQuote } from "../API/API.js";
 
 const DisplayImage = (props) => {
   const { randomIndex, quote } = props;
   return (
-    <Grid item md={8} style={{ position: "relative" }}>
+    <Grid item xs={11} md={8} style={{ position: "relative" }}>
       <Card>
         <CardMedia
           image={randomIndex !== "" ? Imgs[randomIndex] : placeholder}
           title="quote Img"
-          style={{ width: "40rem", height: "24rem" }}
+          className="card-media-image"
         />
       </Card>
       {randomIndex !== "" ? (
-        <div
-          className="btns"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            position: "absolute",
-            top: "24rem",
-            left: "1.5rem",
-          }}
-        >
+        <div className="action-btns">
           <button className="btn-tweet" style={{ marginLeft: "5px" }}>
             <a
               //id="tweet-quote"

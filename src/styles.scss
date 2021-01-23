@@ -37,15 +37,14 @@ body {
   max-height: 5rem;
   /* Sass Nesting */
   h3 {
-    font-size: 1.1rem;
-
-    letter-spacing: 1px;
+    font-size: 0.85rem;
+    letter-spacing: 0.8px;
     color: $lightColor;
     font-family: $mainFont;
     line-height: 2rem;
   }
   p {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     color: #fff;
     font-family: $mainFont;
     margin: 0;
@@ -115,7 +114,57 @@ body {
   cursor: pointer;
   transform: scale(1.1);
 }
+/* Card Media */
+.action-btns {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 12.75rem;
+  left: 1.5rem;
+}
+.card-media-image {
+  width: 20rem;
+  height: 12rem;
+}
+@media (min-width: 800px) {
+  .action-btns {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 18rem;
+    left: 1.5rem;
+  }
+  .card-media-image {
+    width: 35rem;
+    height: 17.5rem;
+  }
+}
 
+@media (min-width: 1000px) {
+  .display-quote {
+    h3 {
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      color: $lightColor;
+      font-family: $mainFont;
+      line-height: 2rem;
+    }
+    p {
+      font-size: 0.9rem;
+      color: #fff;
+      font-family: $mainFont;
+      margin: 0;
+    }
+  }
+  .action-btns {
+    top: 24.75rem;
+    left: 2rem;
+  }
+  .card-media-image {
+    width: 40rem;
+    height: 24rem;
+  }
+}
 /* Imported Basic form Style */
 .form-style-10 {
   width: 450px;

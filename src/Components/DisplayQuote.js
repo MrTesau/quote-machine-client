@@ -1,6 +1,5 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import Hidden from "@material-ui/core/Hidden";
 import DisplayImage from "./DisplayImage";
 import soundUrls from "../quoteSounds/QuoteSounds";
 
@@ -23,7 +22,7 @@ const DisplayQuote = ({ quote, author, ...props }) => {
   return (
     <Grid
       container
-      spacing={3}
+      spacing={6}
       direction="column"
       justify="center"
       alignItems="center"
@@ -64,7 +63,6 @@ const DisplayQuote = ({ quote, author, ...props }) => {
                 style={{ display: "none" }}
               />
               <div
-                className="btns"
                 style={{
                   position: "absolute",
                   right: "1.85rem",
