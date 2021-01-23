@@ -3,8 +3,10 @@ import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
 import QuoteForm from "./AddQuote.js";
-import placeholder from "./imgs/placeholder.jpg";
-import Imgs from "./imgs/QuoteImages";
+import DeleteForm from "./DeleteQuote.js";
+import placeholder from "../imgs/placeholder.jpg";
+import Imgs from "../imgs/QuoteImages";
+import { deleteQuote } from "../API/API.js";
 
 const DisplayImage = (props) => {
   const { randomIndex, quote } = props;
@@ -21,7 +23,6 @@ const DisplayImage = (props) => {
         <div
           className="btns"
           style={{
-            // width: "100vw",
             display: "flex",
             justifyContent: "center",
             position: "absolute",
@@ -29,13 +30,7 @@ const DisplayImage = (props) => {
             left: "1.5rem",
           }}
         >
-          <button
-            className="btn-tweet"
-            style={{ marginLeft: "5px" }}
-            onClick={() => {
-              // props.delete();
-            }}
-          >
+          <button className="btn-tweet" style={{ marginLeft: "5px" }}>
             <a
               //id="tweet-quote"
               className="fa fa-twitter"
@@ -48,18 +43,10 @@ const DisplayImage = (props) => {
           </button>
           <QuoteForm
             onClose={() => {
-              // props.fetchQuotes();
+              props.fetchQuotes();
             }}
           />
-          <button
-            className="btn-delete"
-            style={{ marginLeft: "5px" }}
-            onClick={() => {
-              // props.delete();
-            }}
-          >
-            <i class="fa fa-trash-o" aria-hidden="true"></i> Delete{" "}
-          </button>
+          <DeleteForm />
         </div>
       ) : (
         ""

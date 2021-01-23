@@ -1,17 +1,18 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
-import { createQuote } from "./API";
-import placeholder from "./imgs/backdrop.jpg";
+import { createQuote } from "../API/API";
+import placeholder from "../imgs/backdrop.jpg";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: "absolute",
     width: 400,
     backgroundImage: `url(${placeholder})`,
-    border: "2px solid #000",
+    backgroundBlendMode: "multiply",
+    border: "1px solid #000",
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(4),
+    padding: theme.spacing(6),
   },
 }));
 
@@ -20,8 +21,7 @@ export default function SimpleModal() {
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [open, setOpen] = React.useState(false);
   const [values, setValues] = React.useState({
-    quote: "",
-    author: "",
+    password: "",
   });
 
   const handleInputChange = (e) => {
@@ -29,17 +29,8 @@ export default function SimpleModal() {
     setValues({ ...values, [name]: value });
   };
   const handleSubmit = async (values) => {
-    console.log(values);
-    try {
-      await createQuote(values);
-      onclose();
-      setValues({
-        quote: "",
-        author: "",
-      });
-    } catch (error) {
-      console.error(error);
-    }
+    // error message
+    setValues({ password: "Error: Wrong Password." });
   };
 
   const handleOpen = () => {
@@ -67,25 +58,25 @@ export default function SimpleModal() {
             justifyContent: "center",
             alignItems: "center",
             textAlign: "center",
+            position: "relative",
           }}
         >
+          <button
+            type="button"
+            style={{ position: "absolute", bottom: "7.5rem", left: "25rem" }}
+            className="btn-delete"
+            onClick={handleClose}
+          >
+            Close
+          </button>
           <div class="form-style-10">
-            <form onSubmit={handleSubmit}>
-              <div class="inner-wrap">
-                <textarea
-                  name="quote"
-                  placeholder="...New Quote Here"
-                  value={values.quote}
-                  onChange={handleInputChange}
-                ></textarea>
-              </div>
-              <br />
+            <form>
               <input
                 type="text"
-                placeholder="Author"
-                name="author"
+                placeholder="Quote not inspiring? Enter Admin password to remove it."
+                name="password"
                 onChange={handleInputChange}
-                value={values.author}
+                value={values.password}
               />
               <br />
               <div class="button-section">
@@ -94,13 +85,8 @@ export default function SimpleModal() {
                   name="Add Quote"
                   onClick={() => handleSubmit(values)}
                 />
-              </div>{" "}
+              </div>
             </form>
-            <br />
-
-            <button type="button" className="btn-delete" onClick={handleClose}>
-              Close
-            </button>
           </div>
         </div>
       </div>
@@ -110,13 +96,11 @@ export default function SimpleModal() {
   return (
     <>
       <button
-        className="btn-add"
-        type="button"
-        onClick={handleOpen}
+        className="btn-delete"
         style={{ marginLeft: "5px" }}
+        onClick={handleOpen}
       >
-        <i class="fa fa-plus" aria-hidden="true"></i>
-        &nbsp;Add New
+        <i class="fa fa-trash-o" aria-hidden="true"></i> Delete{" "}
       </button>
       <Modal
         open={open}

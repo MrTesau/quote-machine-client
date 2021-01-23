@@ -1,18 +1,16 @@
 import React from "react";
-import DisplayQuote from "./DisplayQuote.js";
-import { listQuotes, deleteQuote } from "./API";
+import { listQuotes /*deleteQuote*/ } from "./API/API";
 import "./styles.scss";
-// server Request to get saved quotes
+import DisplayQuote from "./Components/DisplayQuote";
 
 export default function App() {
-  const [quotes, setQuotes] = React.useState([]); // [{quote: "", author: ""}]
+  const [quotes, setQuotes] = React.useState([]);
   const [randomIndex, setRandomIndex] = React.useState("");
 
   const fetchQuotes = async () => {
     const storedQuotes = await listQuotes();
     setQuotes(storedQuotes);
   };
-
   const generateIndex = () => {
     let newIndex = Math.floor(Math.random() * quotes.length);
     newIndex === randomIndex ? generateIndex() : setRandomIndex(newIndex);
@@ -20,17 +18,9 @@ export default function App() {
   React.useEffect(() => {
     fetchQuotes();
   }, []);
-
   const Delete = () => {
-    console.log(quotes);
-    //let id = quotes[randomIndex]._id;
-    //deleteQuote(id);
-    // remove from local quotes for performance
-    // prob less than optimal
-    // let removedQuotes = [...quotes];
-    // removedQuotes.splice(randomIndex, 1);
-    // setQuotes(removedQuotes);
-    // generateIndex();
+    // Removed delete Functionality
+    // Added admin password req
   };
 
   return (
@@ -45,3 +35,15 @@ export default function App() {
     </div>
   );
 }
+
+/* OLD DELETE FUNCTIONALITY TO INTEGRATE */
+
+//console.log(quotes);
+//let id = quotes[randomIndex]._id;
+//deleteQuote(id);
+// remove from local quotes for performance
+// prob less than optimal
+// let removedQuotes = [...quotes];
+// removedQuotes.splice(randomIndex, 1);
+// setQuotes(removedQuotes);
+// generateIndex();

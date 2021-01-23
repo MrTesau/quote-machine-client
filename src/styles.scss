@@ -37,9 +37,12 @@ body {
   max-height: 5rem;
   /* Sass Nesting */
   h3 {
-    font-size: 1.125rem;
+    font-size: 1.1rem;
+
+    letter-spacing: 1px;
     color: $lightColor;
     font-family: $mainFont;
+    line-height: 2rem;
   }
   p {
     font-size: 0.9rem;

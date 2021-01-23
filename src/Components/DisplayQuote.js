@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Hidden from "@material-ui/core/Hidden";
 import DisplayImage from "./DisplayImage";
-import soundUrls from "./quoteSounds/QuoteSounds";
+import soundUrls from "../quoteSounds/QuoteSounds";
 
 const DisplayQuote = ({ quote, author, ...props }) => {
   const [playing, setPlaying] = React.useState(false);
