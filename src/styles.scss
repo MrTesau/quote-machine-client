@@ -121,7 +121,7 @@ body {
   margin-top: 0px;
 }
 .form-style-10 .inner-wrap {
-  padding: 10px;
+  padding: 20px;
   border-radius: 6px;
   margin-bottom: 5px;
 }
@@ -132,9 +132,10 @@ body {
 }
 .form-style-10 label {
   display: block;
-  font: 13px Arial, Helvetica, sans-serif;
-  color: #888;
-  margin-bottom: 15px;
+  font: 1rem $mainFont;
+  font-weight: 800;
+  color: rgb(0, 0, 0);
+  margin-bottom: 25px;
 }
 .form-style-10 input[type="text"],
 .form-style-10 textarea,

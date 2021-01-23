@@ -7,11 +7,11 @@ import placeholder from "./imgs/backdrop.jpg";
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: "absolute",
-    width: 500,
+    width: 400,
     backgroundImage: `url(${placeholder})`,
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
+    padding: theme.spacing(4),
   },
 }));
 
@@ -61,29 +61,33 @@ export default function SimpleModal() {
       }}
     >
       <div className={classes.paper}>
-        <div style={{ textAlign: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
           <div class="form-style-10">
             <form onSubmit={handleSubmit}>
-              <div class="section"></div>
               <div class="inner-wrap">
-                <label>
-                  Quote{" "}
-                  <textarea
-                    name="quote"
-                    value={values.quote}
-                    onChange={handleInputChange}
-                  ></textarea>
-                </label>
-              </div>
-              <label>
-                Author{" "}
-                <input
-                  type="text"
-                  name="author"
+                <textarea
+                  name="quote"
+                  placeholder="...New Quote Here"
+                  value={values.quote}
                   onChange={handleInputChange}
-                  value={values.author}
-                />
-              </label>
+                ></textarea>
+              </div>
+              <br />
+              <input
+                type="text"
+                placeholder="Author"
+                name="author"
+                onChange={handleInputChange}
+                value={values.author}
+              />
+              <br />
               <div class="button-section">
                 <input
                   type="submit"
@@ -93,7 +97,8 @@ export default function SimpleModal() {
               </div>{" "}
             </form>
             <br />
-            <button type="button" onClick={handleClose}>
+
+            <button type="button" className="btn-delete" onClick={handleClose}>
               Close
             </button>
           </div>
