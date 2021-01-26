@@ -7,7 +7,7 @@ import placeholder from "../imgs/backdrop.jpg";
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: "absolute",
-    width: 400,
+    width: 300,
     backgroundImage: `url(${placeholder})`,
     backgroundBlendMode: "multiply",
     border: "1px solid #000",
@@ -73,7 +73,7 @@ export default function SimpleModal() {
         >
           <button
             type="button"
-            style={{ position: "absolute", bottom: "13rem", left: "24rem" }}
+            style={{ position: "absolute", bottom: "13rem", left: "10rem" }}
             className="btn-delete"
             onClick={handleClose}
           >
