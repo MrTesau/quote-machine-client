@@ -1,5 +1,5 @@
 import React from "react";
-import { listQuotes /*deleteQuote*/ } from "./API/API";
+import { listQuotes } from "./API/API";
 import "./styles.scss";
 import DisplayQuote from "./Components/DisplayQuote";
 
@@ -11,16 +11,17 @@ export default function App() {
     const storedQuotes = await listQuotes();
     setQuotes(storedQuotes);
   };
-  const generateIndex = () => {
-    let newIndex = Math.floor(Math.random() * quotes.length);
-    newIndex === randomIndex ? generateIndex() : setRandomIndex(newIndex);
-  };
   React.useEffect(() => {
     fetchQuotes();
   }, []);
+
   const Delete = () => {
     // Removed delete Functionality
     // Added admin password req
+  };
+  const generateIndex = () => {
+    let newIndex = Math.floor(Math.random() * quotes.length);
+    newIndex === randomIndex ? generateIndex() : setRandomIndex(newIndex);
   };
 
   return (
@@ -36,11 +37,11 @@ export default function App() {
   );
 }
 
-/* OLD DELETE FUNCTIONALITY TO INTEGRATE */
+/* Old Delete Functionality, Intergrate Properly later: */
 
-//console.log(quotes);
-//let id = quotes[randomIndex]._id;
-//deleteQuote(id);
+// console.log(quotes);
+// let id = quotes[randomIndex]._id;
+// deleteQuote(id);
 // remove from local quotes for performance
 // prob less than optimal
 // let removedQuotes = [...quotes];

@@ -9,16 +9,10 @@ import Imgs from "../imgs/QuoteImages";
 
 const DisplayImage = (props) => {
   const { randomIndex, quote } = props;
-  return (
-    <Grid item xs={11} md={8} style={{ position: "relative" }}>
-      <Card>
-        <CardMedia
-          image={randomIndex !== "" ? Imgs[randomIndex] : placeholder}
-          title="quote Img"
-          className="card-media-image"
-        />
-      </Card>
-      {randomIndex !== "" ? (
+
+  const ButtonDisplay = () => {
+    if (randomIndex !== "") {
+      return (
         <div className="action-btns">
           <button className="btn-tweet" style={{ marginLeft: "5px" }}>
             <a
@@ -38,9 +32,20 @@ const DisplayImage = (props) => {
           />
           <DeleteForm />
         </div>
-      ) : (
-        ""
-      )}
+      );
+    }
+  };
+
+  return (
+    <Grid item xs={11} md={8} style={{ position: "relative" }}>
+      <Card>
+        <CardMedia
+          image={randomIndex !== "" ? Imgs[randomIndex] : placeholder}
+          title="quote Img"
+          className="card-media-image"
+        />
+      </Card>
+      {ButtonDisplay()}
     </Grid>
   );
 };
