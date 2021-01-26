@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
-import { createQuote } from "../API/API";
+//import { createQuote } from "../API/API";
 import placeholder from "../imgs/backdrop.jpg";
 
 const useStyles = makeStyles((theme) => ({
