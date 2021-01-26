@@ -1,0 +1,72 @@
+$mainFont: "Courier New", monospace;
+/* Imported Basic form Style */
+.form-style-10 {
+  width: 450px;
+  padding: 5px;
+  margin: auto;
+  margin-top: 0px;
+}
+.form-style-10 .inner-wrap {
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
+.form-style-10 h1 > span {
+  display: block;
+  margin-top: 2px;
+  font: 13px Arial, Helvetica, sans-serif;
+}
+.form-style-10 label {
+  display: block;
+  font: 1rem $mainFont;
+  font-weight: 800;
+  color: rgb(0, 0, 0);
+  margin-bottom: 25px;
+}
+.form-style-10 input[type="text"],
+.form-style-10 textarea,
+.form-style-10 select {
+  display: block;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 100%;
+  padding: 8px;
+}
+
+.form-style-10 .section {
+  font: normal 20px "Bitter", serif;
+  color: #2a88ad;
+  margin-bottom: 5px;
+}
+
+.form-style-10 input[type="button"],
+.form-style-10 input[type="submit"] {
+  background: #2a88ad;
+  padding: 8px 20px 8px 20px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+  font: normal 30px "Bitter", serif;
+  -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+  -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+  box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+  border: 1px solid #257c9e;
+  font-size: 15px;
+}
+/* Old button
+ .btn {
+  font-size: 1rem;
+  font-family: Source Sans Pro, sans-serif;
+  padding: 0.5rem 1.5rem;
+  margin: 1rem;
+  color: #303030;
+  text-transform: none;
+  text-decoration: none;
+  border: 1px solid rgb(146, 148, 248);
+  position: relative;
+  overflow: hidden;
+}
+*/

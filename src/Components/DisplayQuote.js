@@ -69,12 +69,14 @@ const DisplayQuote = ({ quote, author, ...props }) => {
         <div className="display-quote">
           {props.randomIndex !== "" ? (
             <>
-              <h3>{`${quote}`}</h3>
+              <h3 className="display-quote-main-text">{`${quote}`}</h3>
               <br />
-              <p>{`-${author}`}</p>
+              <p className="display-quote-info-text">{`-${author}`}</p>
             </>
           ) : (
-            <h3>Click Below to Generate a Motivational Quote</h3>
+            <h3 className="display-quote-main-text">
+              Click Below to Generate a Motivational Quote
+            </h3>
           )}
         </div>
       </Grid>

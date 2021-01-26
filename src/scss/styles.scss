@@ -1,5 +1,27 @@
+@import "./forms";
+
+/* Sass Variables */
 $lightColor: #fff;
 $mainFont: "Courier New", monospace;
+
+/* sass map array */
+/* To set: map-get($map-name, "key name") */
+$font-color-map: (
+  "$lightColor": #fff,
+  "$darkColor": #000,
+);
+/* sass mixins */
+/* Mixins = styles, functions=values */
+@mixin flex-center($direction) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+@mixin hover-grow($scale) {
+  filter: brightness(120%);
+  transform: scale($scale);
+}
 
 * {
   margin: 0;
@@ -18,30 +40,32 @@ $mainFont: "Courier New", monospace;
   max-width: 100vw;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include flex-center($direction: column);
 }
-
 .display-quote {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @include flex-center($direction: column);
   text-align: center;
   width: 100%;
   margin: 0;
   min-height: 5rem;
   max-height: 5rem;
   /* Sass Nesting */
-  h3 {
-    font-size: 0.85rem;
+  /* & === Parant name */
+  /* #{&} nested class in parent */
+  #{&}-main-text {
+    font-size: 1rem;
     letter-spacing: 0.8px;
-    color: $lightColor;
+    color: map-get($font-color-map, "$lightColor");
     font-family: $mainFont;
     line-height: 2rem;
   }
-  p {
+  /* add Hover on large screens */
+  @media (min-width: 1000px) {
+    #{&}-main-text:hover {
+      @include hover-grow(1.125);
+    }
+  }
+  #{&}-info-text {
     font-size: 0.7rem;
     color: #fff;
     font-family: $mainFont;
@@ -66,7 +90,7 @@ $mainFont: "Courier New", monospace;
 }
 .btn:hover {
   background-color: #0f0f0f;
-  transform: scale(1.1);
+  @include hover-grow(1.1);
   cursor: pointer;
 }
 .btn-add {
@@ -102,8 +126,9 @@ $mainFont: "Courier New", monospace;
 .btn-tweet:hover,
 .btn-delete:hover {
   cursor: pointer;
-  transform: scale(1.1);
+  @include hover-grow(1.05);
 }
+
 /* Card Media */
 .action-btns {
   display: flex;
@@ -115,6 +140,17 @@ $mainFont: "Courier New", monospace;
 .card-media-image {
   width: 20rem;
   height: 12rem;
+}
+@media (max-width: 450px) {
+  .display-quote {
+    h3 {
+      line-height: 20px !important;
+      font-size: 0.75rem !important;
+    }
+    p {
+      font-size: 0.65rem !important;
+    }
+  }
 }
 @media (min-width: 800px) {
   .action-btns {
@@ -154,75 +190,3 @@ $mainFont: "Courier New", monospace;
     height: 24rem;
   }
 }
-
-/* Imported Basic form Style */
-.form-style-10 {
-  width: 450px;
-  padding: 5px;
-  margin: auto;
-  margin-top: 0px;
-}
-.form-style-10 .inner-wrap {
-  padding: 20px;
-  border-radius: 6px;
-  margin-bottom: 5px;
-}
-.form-style-10 h1 > span {
-  display: block;
-  margin-top: 2px;
-  font: 13px Arial, Helvetica, sans-serif;
-}
-.form-style-10 label {
-  display: block;
-  font: 1rem $mainFont;
-  font-weight: 800;
-  color: rgb(0, 0, 0);
-  margin-bottom: 25px;
-}
-.form-style-10 input[type="text"],
-.form-style-10 textarea,
-.form-style-10 select {
-  display: block;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  width: 100%;
-  padding: 8px;
-}
-
-.form-style-10 .section {
-  font: normal 20px "Bitter", serif;
-  color: #2a88ad;
-  margin-bottom: 5px;
-}
-
-.form-style-10 input[type="button"],
-.form-style-10 input[type="submit"] {
-  background: #2a88ad;
-  padding: 8px 20px 8px 20px;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  color: #fff;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
-  font: normal 30px "Bitter", serif;
-  -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
-  -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
-  box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
-  border: 1px solid #257c9e;
-  font-size: 15px;
-}
-/* Old button
- .btn {
-  font-size: 1rem;
-  font-family: Source Sans Pro, sans-serif;
-  padding: 0.5rem 1.5rem;
-  margin: 1rem;
-  color: #303030;
-  text-transform: none;
-  text-decoration: none;
-  border: 1px solid rgb(146, 148, 248);
-  position: relative;
-  overflow: hidden;
-}
-*/

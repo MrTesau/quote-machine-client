@@ -1,6 +1,6 @@
 import React from "react";
 import { listQuotes } from "./API/API";
-import "./styles.scss";
+import "./scss/styles.scss";
 import DisplayQuote from "./Components/DisplayQuote";
 
 export default function App() {
