@@ -8,6 +8,7 @@ import pain from "./pain.mp3";
 import ronnie from "./ronnie.mp3";
 import arny from "./arny.mp3";
 import never from "./never.mp3";
+import march from "./march.mp3";
 
 // To do: intergrate sounds into database
 const soundUrls = [
@@ -30,5 +31,6 @@ const soundUrls = [
   arny,
   pain,
   never,
+  march,
 ];
 export default soundUrls;

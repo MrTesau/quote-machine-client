@@ -1,5 +1,5 @@
 const API_URL = "https://goofy-bohr-1f3a71.netlify.app/.netlify/functions/api";
-//"http://localhost:9000/.netlify/functions/api"; //;
+//"http://localhost:9000/.netlify/functions/api";
 //window.location.hostname === "localhost"
 // ? "http://localhost:1337"
 //: "future server"; // INSERT SERVER URL

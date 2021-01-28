@@ -16,7 +16,7 @@ import leo from "./leo.jpg";
 import arny from "./arny.jpg";
 import ras from "./ras.jpg";
 import die from "./die.jpg";
-
+import stannis from "./stannis.jpg";
 //To Do: integrate images into database
 
 const Imgs = [
@@ -39,5 +39,6 @@ const Imgs = [
   arny,
   ras,
   die,
+  stannis,
 ];
 export default Imgs;
